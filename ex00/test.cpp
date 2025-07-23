@@ -4,18 +4,14 @@
 int	main()
 {
 	// Calculating the area of a rectangle: width * height
-	int		height;
-	int		width;
-	int		area;
+	int		x;
+	int		y;
 
-
-	height = 20;
-	width = 30;
-	area = height * width;
-
-	std::cout << "The height is: " << height << std::endl;
-	std::cout << "The width is: " << width << std::endl;
-	std::cout << "The area is: " << area << std::endl;
+	std::cout << "Enter your first number: ";
+	std::cin >> x;
+	std::cout << "Enter your seconde number: ";
+	std::cin >> y;
+	std::cout << "The sum of those two numbers are: " << x + y << std::endl;
 	
 	return (0);
 }
