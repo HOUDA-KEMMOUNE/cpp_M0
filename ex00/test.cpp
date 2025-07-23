@@ -3,12 +3,19 @@
 
 int	main()
 {
-	std::string name = "Houda"; // smthg new in c++, u should just include the string header file :D
-	int			age = 18;
-	char		school[] = "1337";
+	// Calculating the area of a rectangle: width * height
+	int		height;
+	int		width;
+	int		area;
 
-	// std::cout << 3 + 3 << std::endl;
-	std::cout << "\nHello my name is " << name << " I'm " << age << " and i'm studying IT at " << school << std::endl << std::endl;
 
+	height = 20;
+	width = 30;
+	area = height * width;
+
+	std::cout << "The height is: " << height << std::endl;
+	std::cout << "The width is: " << width << std::endl;
+	std::cout << "The area is: " << area << std::endl;
+	
 	return (0);
 }
