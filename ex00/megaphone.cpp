@@ -20,120 +20,50 @@ int	is_space(char c)
 		return (0); //isn't space
 }
 
-int	end_of_word(char *ret)
+char	*end_of_word(char *str)
 {
-	int	i;
+	int		i;
+	int		end;
+	int		flag;
 
 	i = 0;
-	while (ret)
-	{
-		if ((is_space(ret[i]) == 0) && (is_space(ret[i + 1]) == 1 || is_space(ret[i + 1]) == -1)) 
-		{
-			if (is_space(ret[i]) == 0 && is_space(ret[i + 1]) == -1)
-				break ;
-			else
-			{
-				i++;
-				while ((is_space(ret[i]) == 1 || is_space(ret[i]) == -1))
-				{
-					if (is_space(ret[i]) == -1)
-						break ;
-					else
-					{
-						i++;
-					}
-				}
-			}
-		}
+	while (str[i])
 		i++;
+	end = i - 1;
+	flag = 0;
+	while (end >= 0)
+	{
+		if (is_space(str[end]) == 0)
+		{
+			flag = 1;
+			break ;
+		}
+		end--;
 	}
+	if (flag == 1)
+	{
+		str[end + 1] = '\0';
+	}
+	return (str);
 }
 
 char	*skip_spaces(char *str)
 {
 	int		i;
-	// int		start;
-	char	*ret;
 
 	i = 0;
 	while (is_space(*str) == 1 || is_space(*str) == -1)
 	{
 		if (is_space(*str) == -1)
-			break ;
+		break ;
 		i++;
 		str++;
 	}
-	i = 0;
-	ret = str;
-	// while (ret)
-	// {
-	// 	if ((is_space(ret[i]) == 0) && (is_space(ret[i + 1]) == 1 || is_space(ret[i + 1]) == -1)) 
-	// 	{
-	// 		if (is_space(ret[i]) == 0 && is_space(ret[i + 1]) == -1)
-	// 			break ;
-	// 		else
-	// 		{
-	// 			i++;
-	// 			while ((is_space(ret[i]) == 1 || is_space(ret[i]) == -1))
-	// 			{
-	// 				if (is_space(ret[i]) == -1)
-	// 					break ;
-	// 				else
-	// 				{
-	// 					i++;
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// 	i++;
-	// }
-	std::cout << "ret ==" << ret << "|" << std::endl;
-
-	return (ret);
+	str = end_of_word(str);
+	return (str);
 }
 
-// char	*skip_spaces(char *str)
-// {
-// 	int		i;
-// 	int		start;
-// 	char	*ret;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		while (is_space(str[i]) == 1 || is_space(str[i]) == -1)
-// 		{
-// 			if (is_space(str[i]) == -1)
-// 				break ;
-// 			i++;
-// 		}
-// 		start = i;
-// 		std::cout << "start => " << start << std::endl;
-// 		if ((is_space(str[i]) == 0) && (is_space(str[i + 1]) == 1 || is_space(str[i + 1]) == -1)) 
-// 		{
-// 			if (is_space(str[i]) == 0 && is_space(str[i + 1]) == -1)
-// 				break ;
-// 			else
-// 			{
-// 				i++;
-// 				while ((is_space(str[i]) == 1 || is_space(str[i]) == -1))
-// 				{
-// 					if (is_space(str[i]) == -1)
-// 						break ;
-// 					else
-// 						i++;
-// 				}
-// 			}
-// 		}
-// 		i++;
-// 	}
-// 	// ret = str[5];
-// 	std::cout << "ret ==" << ret << "|" << std::endl;
-
-// 	return (ret);
-// }
-
-void	str_upper(char *str)
+char	*str_upper(char *str)
 {
 	int	i;
 
@@ -148,14 +78,12 @@ void	str_upper(char *str)
 		}
 		i++;
 	}
+	return (str);
 }
 
 int	main(int ac, char **av)
 {
-	// (void)av;
 	int		i;
-	// char	*str;
-	// int	j;
 
 	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
@@ -164,9 +92,8 @@ int	main(int ac, char **av)
 		i = 1;
 		while (av[i])
 		{
-			// skip_spaces(av[i]);
-			str_upper(av[i]); //TODO
-			std::cout << av[i];
+			char *str = str_upper(av[i]);
+			std::cout << str;
 			if (av[i + 1] != NULL)
 				std::cout << " ";
 			i++;
