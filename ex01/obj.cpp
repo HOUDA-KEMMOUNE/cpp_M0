@@ -1,20 +1,22 @@
 #include <iostream>
 #include <string>
 
-class Dog
+class Book
 {
 	public:
-		void	bark(void);
+		std::string	title;
+		std::string	author;
+		int			year;
+		Book(std::string a, std::string b, int c);
 };
 
-void	Dog::bark(void)
+Book::Book(std::string a, std::string b, int c)
 {
-	std::cout << "Woof!\n";
+	std::cout << a << ", " << b << ", " <<  c << std::endl;
 }
 
 int	main()
 {
-	Dog	dog_obj;
-
-	dog_obj.bark();
+	Book	book_obj1("Matilda", "Roald Dahl", 1988);
+	Book	book_obj2("The Giving Tree", "Shel Silverstein", 1964);
 }
