@@ -8,13 +8,13 @@ SRC = megaphone.cpp
 
 all: $(NAME)
 
-$(NAME) = $(SRC)
+$(NAME): $(SRC)
 	$(CPP) $(CPPFLAGS) $(SRC) -o $(NAME)
 
 clean:
-	rm megaphone.o
+	rm -rf megaphone.o
 
 fclean: clean
-	rm megaphone
+	rm -rf $(NAME)
 
 re: fclean all
