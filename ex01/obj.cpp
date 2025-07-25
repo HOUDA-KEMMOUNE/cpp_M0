@@ -1,22 +1,30 @@
 #include <iostream>
 #include <string>
 
-class Book
+class Person
 {
+	private:
+		std::string	secret;
 	public:
-		std::string	title;
-		std::string	author;
-		int			year;
-		Book(std::string a, std::string b, int c);
+		std::string	name;
+		int			age;
+		void	setSecret(std::string s)
+		{
+			secret = s;
+		}
+		std::string	getSecret(void)
+		{
+			return (secret);
+		}
 };
 
-Book::Book(std::string a, std::string b, int c)
-{
-	std::cout << a << ", " << b << ", " <<  c << std::endl;
-}
 
 int	main()
 {
-	Book	book_obj1("Matilda", "Roald Dahl", 1988);
-	Book	book_obj2("The Giving Tree", "Shel Silverstein", 1964);
+	Person	person1;
+
+	person1.name = "Houda.Kem";
+	person1.age = 18;
+	person1.setSecret("It's a secret after all HAHA");
+	std::cout << "The secret of person1 is: " << person1.getSecret() << std::endl;
 }
