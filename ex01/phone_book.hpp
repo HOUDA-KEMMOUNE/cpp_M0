@@ -37,11 +37,16 @@ class PhoneBook
 		
 	public:
 		void	set_count(void) {count = 0;}
-		PhoneBook(Contact c)
+		void	set_contact(Contact c)
 		{
 			if (count < 8)
 				contacts[count] = c;
 		}
+		// PhoneBook(Contact c)
+		// {
+		// 	if (count < 8)
+		// 		contacts[count] = c;
+		// }
 		void	add_contact(Contact c);
 		void	search_contact(Contact c);
 		void	exit_contact(Contact c);
