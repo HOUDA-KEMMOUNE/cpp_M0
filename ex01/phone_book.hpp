@@ -52,13 +52,13 @@ class PhoneBook
 					contacts[count].set_darkest_scrt(ds);
 				}
 		}
-		void	get_contact(void)
+		void	get_contact(int i)
 		{
-			std::cout << contacts[count].get_firstName() << std::endl;
-			std::cout << contacts[count].get_lastName() << std::endl;
-			std::cout << contacts[count].get_nickname() << std::endl;
-			std::cout << contacts[count].get_phone_nbr() << std::endl;
-			std::cout << contacts[count].get_darkest_scrt() << std::endl;
+			std::cout << contacts[i].get_firstName() << std::endl;
+			std::cout << contacts[i].get_lastName() << std::endl;
+			std::cout << contacts[i].get_nickname() << std::endl;
+			std::cout << contacts[i].get_phone_nbr() << std::endl;
+			std::cout << contacts[i].get_darkest_scrt() << std::endl;
 		}
 };
 	
