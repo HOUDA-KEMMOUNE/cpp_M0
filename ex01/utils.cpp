@@ -72,8 +72,9 @@ int	parsing(std::string data, std::string action)
 
 std::string	is_empty(std::string data, std::string action)
 {
-    int	i;
-	// int	check;
+    size_t	    i;
+    char        c;
+	int	        valid;
 
     while (1)
     {
@@ -83,59 +84,47 @@ std::string	is_empty(std::string data, std::string action)
             std::cout << action << ": ";
             std::getline(std::cin, data);
         }
-        else if (action == "First Name" || action == "Last Name" || action == "Phone number")
+        else if (action == "First Name" || action == "Last Name")
         {
-            if (action == "First Name" || action == "Last Name")
+            i = 0;
+            valid = 1;
+            while (i < data.length())
             {
-                i = 0;
-                while (data[i])
+                c = data[i];
+                if (!std::isalpha(c)) //cause it returns 0 if it's not alpha
                 {
-                    if ((data[i] >= 'a' && data[i] <= 'z') || (data[i] >= 'A' && data[i] <= 'Z'))
-                    {
-                        // std::cout << "i'm alpha\n";
-                        i++;      
-                    }
-                    else
-                    {
-                        // std::cout << "i'm not alpha\n";
-                        std::cout << "\033[31mInvalid input [Your input should contain just alphabets !]\033[0m\n";
-                    }
+                    std::cout << "\033[31mInvalid input [Your input should contain just alphabets !]\033[0m\n";
+                    valid = 0;
+                    break ;
                 }
+                i++;
             }
-            else
+            if (valid == 1)
+                return (data);
+        }
+        else if (action == "Phone number")
+        {
+            i = 0;
+            valid = 1;
+            while (i < data.length())
             {
-                 i = 0;
-                while (data[i])
+                c = data[i];
+                if (!std::isdigit(c)) //cause it returns 0 if it's not digit
                 {
-                    if (data[i] >= '0' && data[i] <= '9')
-                        i++;
-                    else
-                    {
-		            	std::cout << "\033[31mInvalid input [Your input should contain just numbers !]\033[0m\n";
-                    }
+                    std::cout << "\033[31mInvalid input [Your input should contain just numbers !]\033[0m\n";
+                    valid = 0;
+                    break ;
                 }
+                i++;
             }
-            std::cout << action << ": ";
-            std::getline(std::cin, data);
+            if (valid == 1)
+                return (data);
         }
         else
-            break ;
+            return (data);
+
+        std::cout << action << ": ";
+        std::getline(std::cin, data);
     }
-	// while (data.empty() || parsing(data, action) == 0)
-	// {
-	// 	if (data.empty())
-	// 	{
-	// 		std::cout << "\033[31mInvalid input\033[0m\n";
-	// 		std::cout << action;
-	// 		std::getline(std::cin, data);
-	// 	}
-    //     else if (parsing(data, action) == 0)
-    //     {
-    //         std::cout << action;
-	// 		std::getline(std::cin, data);
-    //     }
-	// 	else
-	// 		break ;
-	// }
 	return (data);
 }
