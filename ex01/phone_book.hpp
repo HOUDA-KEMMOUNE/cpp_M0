@@ -33,29 +33,36 @@ class	Contact
 class PhoneBook
 {
 	private:
-		Contact	contacts[7];
+		Contact	contacts[8];
 		int		count;
 		
 	public:
-		void	set_count(void) {count = 0;}
-		void	set_contact(Contact c)
+		void	set_count(int c) {count = c;}
+		int		get_count(void) {return (count);}
+		void	set_contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds)
 		{
-			if (count < 8)
-				contacts[count] = c;
+				if (count == 8)
+					count = 0;
+				if (count < 8)
+				{
+					contacts[count].set_firstName(fn);
+					contacts[count].set_lastName(ln);
+					contacts[count].set_nickname(nn);
+					contacts[count].set_phone_nbr(pn);
+					contacts[count].set_darkest_scrt(ds);
+				}
 		}
-		// PhoneBook(Contact c)
-		// {
-		// 	if (count < 8)
-		// 		contacts[count] = c;
-		// }
-		void	add_contact(Contact c);
-		void	search_contact(Contact c);
-		void	exit_contact(Contact c);
+		void	get_contact(void)
+		{
+			std::cout << contacts[count].get_firstName() << std::endl;
+			std::cout << contacts[count].get_lastName() << std::endl;
+			std::cout << contacts[count].get_nickname() << std::endl;
+			std::cout << contacts[count].get_phone_nbr() << std::endl;
+			std::cout << contacts[count].get_darkest_scrt() << std::endl;
+		}
 };
 	
 //------------utils----------------
 std::string	is_empty(std::string data, std::string action);
-int			check_str_pure(std::string str, int index);
-int			parsing(std::string data, std::string action);
 
 #endif
