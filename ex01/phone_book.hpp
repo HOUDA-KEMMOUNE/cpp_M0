@@ -50,7 +50,11 @@ class PhoneBook
 		void	add_contact(Contact c);
 		void	search_contact(Contact c);
 		void	exit_contact(Contact c);
-	};
+};
 	
+//------------utils----------------
+std::string	is_empty(std::string data, std::string action);
+int			check_str_pure(std::string str, int index);
+int			parsing(std::string data, std::string action);
 
 #endif
