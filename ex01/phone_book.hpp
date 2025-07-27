@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <string>
-# include <cctype>
+# include <iomanip>
 
 class	Contact
 {
@@ -52,17 +52,25 @@ class PhoneBook
 					contacts[count].set_darkest_scrt(ds);
 				}
 		}
-		void	get_contact(int i)
+		std::string	get_fn(int i)
 		{
-			std::cout << contacts[i].get_firstName() << std::endl;
-			std::cout << contacts[i].get_lastName() << std::endl;
-			std::cout << contacts[i].get_nickname() << std::endl;
-			std::cout << contacts[i].get_phone_nbr() << std::endl;
-			std::cout << contacts[i].get_darkest_scrt() << std::endl;
+			std::string	first_nm = contacts[i].get_firstName();
+			return (first_nm);
+		}
+		std::string	get_ln(int i)
+		{
+			std::string	last_nm = contacts[i].get_lastName();
+			return (last_nm);
+		}
+		std::string	get_nn(int i)
+		{
+			std::string	nickname = contacts[i].get_nickname();
+			return (nickname);
 		}
 };
-	
+
 //------------utils----------------
 std::string	is_empty(std::string data, std::string action);
+void		have_search_contact(int i, PhoneBook phone_book);
 
 #endif
