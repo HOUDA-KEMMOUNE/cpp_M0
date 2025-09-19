@@ -51,7 +51,8 @@ class PhoneBook
 	public:
 		void	set_count(int c) {count = c;}
 		int		get_count(void) {return (count);}
-		void	set_contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds)
+		void	set_contact(std::string fn, std::string ln, 
+							std::string nn, std::string pn, std::string ds)
 		{
 				if (count == 8)
 					count = 0;

@@ -37,6 +37,8 @@ std::string	is_empty(std::string data, std::string action)
 				{
 					std::cout << "\033[31mInvalid input [Your input should contain just alphabets !]\033[0m\n";
 					valid = 0;
+					std::cout << action << ": ";
+					std::getline(std::cin, data);
 					break ;
 				}
 				i++;
@@ -55,6 +57,8 @@ std::string	is_empty(std::string data, std::string action)
 				{
 					std::cout << "\033[31mInvalid input [Your input should contain just numbers !]\033[0m\n";
 					valid = 0;
+					std::cout << action << ": ";
+					std::getline(std::cin, data);
 					break ;
 				}
 				i++;
@@ -64,9 +68,6 @@ std::string	is_empty(std::string data, std::string action)
 		}
 		else
 			return (data);
-
-		std::cout << action << ": ";
-		std::getline(std::cin, data);
 	}
 	return (data);
 }
