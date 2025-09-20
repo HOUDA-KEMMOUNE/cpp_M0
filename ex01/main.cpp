@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phone_book.hpp"
+#include "PhoneBook.hpp"
+#include "utils.hpp"
 
 int	print_search(int id, PhoneBook phone_book, int count)
 {
