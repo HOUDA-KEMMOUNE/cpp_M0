@@ -79,7 +79,6 @@ int	main(void)
 	PhoneBook	phone_book;
 	static int	count;
 	std::string	search_inp;
-	// int			contact_id;
 	std::string	input;
 	std::string	data[5];
 

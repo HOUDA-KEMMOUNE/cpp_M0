@@ -89,7 +89,6 @@ void	print_info(std::string str)
 		str[i] = '.';
 		new_str = str.substr(0, 10);
 		std::cout << std::setw(10) << new_str;
-		// std::cout << "str => " << str << "\n";
 	}
 	else
 		std::cout << std::setw(10) << str;
